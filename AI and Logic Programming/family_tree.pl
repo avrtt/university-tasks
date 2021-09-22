@@ -108,7 +108,8 @@ cousin(X, Y) :- uncle(Z, X) , father(Z, Y).
 nephew(X, Y) :- (uncle(Y, X) ; aunt(Y, X)) , male(X).
 niece(X, Y) :- (uncle(Y, X) ; aunt(Y, X)) , female(X).
 sibling(X, Y) :- brother(X, Y) ; sister(X, Y).
-ancestor(X, Y) :- child(X, Y) ; grandchild(X, Y) ; greatgrandchild(X, Y) ; greatgreatgrandchild(X, Y). 
+ancestor(X, Y) :- parent(X, Y).
+ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y), X \= Y.
 descendant(X, Y) :- ancestor(Y, X).
-samebloodline(X, Y) :- ancestor(X, Z) , ancestor(Y, Z), X \= Y.
+samebloodline(X, Y) :- ancestor(X, Y) ; descendant(X, Y).
 couple(X, Y) :- parent(X, Z) , parent(Y, Z), X \= Y.
