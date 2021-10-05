@@ -1,5 +1,5 @@
 ## Soundtrack
-[![Vordt of the Boreal Valley](https://github.com/lenferdetroud/misc/blob/master/university/vordt_of_the_boreal_valley.png)](https://www.youtube.com/watch?v=nxXcuDAv7Ss&t=107s)
+<a href="https://www.youtube.com/watch?v=nxXcuDAv7Ss&t=107s"><img src="https://github.com/lenferdetroud/misc/blob/master/university/vordt_of_the_boreal_valley.png" alt="Vordt of the Boreal Valley" width="450"/></a>
 ## Abstract
 ...
 ## Introduction to Finite Element Method
