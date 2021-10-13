@@ -21,9 +21,9 @@ insert_even(X, [Y|InList], [Y,X|InList]).
 insert_even(X, [Y,Z|InList], [Y,Z|OutList]) :-
     insert_even(X, InList, OutList).
 
-list_even_len(List) :-
+even_len(List) :-
     length(List, Length),
     0 =:= Length mod 2.
  
-list_odd_len(List) :-
-    not(list_even_len(List)).
+odd_len(List) :-
+    not(even_len(List)).
