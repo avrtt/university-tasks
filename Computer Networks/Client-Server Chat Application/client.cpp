@@ -7,8 +7,8 @@
 #include <string>
 using namespace std;
 bool offline; // client status flag
-const int U = 256; // username lenght
-const int M = 1000; // message lenght
+const int U = 256; // username length
+const int M = 1000; // message length
 
 DWORD WINAPI receive(LPVOID clientSocket)
 {
@@ -43,7 +43,7 @@ DWORD WINAPI receive(LPVOID clientSocket)
         if (retVal == SOCKET_ERROR)
         {
             retVal = 0;
-            cout << "Error: Unable to recieve message!" << endl;
+            cout << "Error: Unable to receive message!" << endl;
             offline = true;
             return 0;
         }
