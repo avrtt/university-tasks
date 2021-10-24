@@ -25,7 +25,7 @@ int main() {
         printf("Socket opened\n"); 
     }
     else {
-        printf("Error: Socket was not opened!\n");
+        perror("Error: Socket was not opened!");
         exit(EXIT_FAILURE);
     }
  
@@ -36,14 +36,14 @@ int main() {
  
     // bind server socket to specific port
     if (bind(s_server, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) == SO_ERROR) {
-        printf("Error: Socket was not bound!\n");
+        perror("Error: Socket was not bound!");
         printf("Socket closed\n");
         exit(EXIT_FAILURE);
     }
  
     // starting socket listening
     if (listen(s_server, 5) < 0) { // max queue size = 5
-        printf("Error!\n");
+        perror("Error!\n");
         printf("Socket closed\n");
         exit(EXIT_FAILURE);
     }
@@ -54,7 +54,7 @@ int main() {
     // accepting a client connection
     s_new = accept(s_server, (struct sockaddr *) &from, (socklen_t *) & from_len);
     if (s_new < 0) {
-        printf("Error: Connection was not accepted!\n");
+        perror("Error: Connection was not accepted!");
         printf("Socket closed\n");
         exit(EXIT_FAILURE);
     }
@@ -63,11 +63,11 @@ int main() {
     }
  
     // receiving messages from the client
-    recv(s_new, buffer_in, BUF_SIZE);
+    read(s_new, buffer_in, BUF_SIZE);
     number1 = atoi(buffer_in);
     printf("Message received: %d\n", number1);
  
-    recv(s_new, buffer_in, BUF_SIZE);
+    read(s_new, buffer_in, BUF_SIZE);
     number2 = atoi(buffer_in);
     printf("Message received: %d\n", number2);
  

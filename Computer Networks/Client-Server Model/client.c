@@ -9,7 +9,7 @@
 #include <arpa/inet.h>
 #define BUF_SIZE 100
 #define PORT 2008
-#define SERVER_IP "192.168.0.38"
+#define SERVER_IP "192.168.1.102"
  
 int main() {
  
@@ -19,7 +19,7 @@ int main() {
  
     // creating socket
     if ((s_client = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
-        printf("Error: Socket was not opened!\n");
+        perror("Error: Socket was not opened!");
         printf("Socket closed\n");
         exit(EXIT_FAILURE);
     }
@@ -32,13 +32,13 @@ int main() {
  
     // set IP
     if(inet_pton(AF_INET, SERVER_IP, &serv_addr.sin_addr) <= 0) {
-        printf("Error: Invalid IP-adress!");
+        perror("Error: Invalid IP-adress!");
         exit(EXIT_FAILURE);
     }
  
     // connecting to the server
     if (connect(s_client, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
-        printf("Error: Connection was not established!\n");
+        perror("Error: Connection was not established!");
         printf("Socket closed\n");
         exit(EXIT_SUCCESS);
     }
@@ -58,7 +58,7 @@ int main() {
  
  
     // receiving messages from the server
-    recv(s_client, buffer, BUF_SIZE);
+    read(s_client, buffer, BUF_SIZE);
     printf("Answer received: %s\n", buffer);
  
     // closing socket
