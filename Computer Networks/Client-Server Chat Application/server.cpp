@@ -6,8 +6,8 @@
 #include <sstream>
 #include <string>
 using namespace std;
-const int U = 256; // username lenght
-const int M = 1000; // message lenght
+const int U = 256; // username length
+const int M = 1000; // message length
 const int maxClients = 5; // maximum number of users
 int curClients; // number of connected users
 char usernames[maxClients + 1][U];
@@ -180,7 +180,7 @@ int main()
 
         if (retVal == SOCKET_ERROR)
         {
-            cout << "Error: Unable to listen socket!" << endl;
+            cout << "Error: Cannot listen to socket!" << endl;
             WSACleanup();
             system("pause");
             return SOCKET_ERROR;
@@ -210,7 +210,7 @@ int main()
         // get client data
         if (retVal == SOCKET_ERROR)
         {
-            cout << "Error: Unable to recieve message!" << endl;
+            cout << "Error: Unable to receive message!" << endl;
             system("pause");
             return SOCKET_ERROR;
         }
