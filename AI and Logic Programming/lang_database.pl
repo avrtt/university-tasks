@@ -19,7 +19,6 @@ choice(2):-
 	write(" speaks "),
 	write(Lang), nl.
 
-
 choice(3):- 
 	consult(lang_database),
 	write("Loaded."), nl.
