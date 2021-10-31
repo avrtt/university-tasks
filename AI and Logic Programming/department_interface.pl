@@ -1,16 +1,16 @@
 :-dynamic(staff/3).
 
 save(File) :-
-   tell(File), listing, told.
+	tell(File), listing, told.
 
 choice(1):- 
 	write("Full name: "),
-   read(Name),
+	read(Name),
 	write("Status: "),
-   read(Status),
-   write("Email: "),
-   read(Email),
-   assert(staff(Name, Status, Email)).
+	read(Status),
+	write("Email: "),
+   	read(Email),
+	assert(staff(Name, Status, Email)).
 
 choice(2):-
 	staff(Name, Status, Email),
