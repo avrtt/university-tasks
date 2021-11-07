@@ -69,7 +69,7 @@ int readFrame(FILE* in)
 
 	if (typeLength > maxFrameLength)
 	{
-		printf("\nFrame Type: Ethernet II / IPv4 (%04X)\n", typeLength);
+		printf("\nFrame Type: Ethernet II (%04X)\n", typeLength);
 		if (typeLength == 0x0800)
 		{
 			readDatagram(in);
