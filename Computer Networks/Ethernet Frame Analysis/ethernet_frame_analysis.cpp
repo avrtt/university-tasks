@@ -211,7 +211,7 @@ int BPDU(FILE* in)
 		printf("   BPDU Type: Topology Changed\n");
 
 	fread(&BUF, 1, 1, in);
-	printf("   Rags: %X\n", BUF);
+	printf("   Flags: %X\n", BUF);
 
 	fread(&BUF8, 1, 8, in);
 	printf("   Root Identifier: ");
