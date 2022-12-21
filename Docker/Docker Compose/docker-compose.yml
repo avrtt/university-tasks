@@ -1,0 +1,16 @@
+version: "3"
+services:
+  server:
+    build: server/
+    command: python ./server.py
+    ports:
+      - 1234:1234
+  client:
+    build: client/
+    command: python ./client.py
+    network_mode: host
+    depends_on:
+      - server
+
+
+
